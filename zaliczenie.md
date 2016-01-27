@@ -22,7 +22,8 @@ sudo service mongodb start
 time bunzip2 -c RC_2015-05.bz2 | mongoimport --drop --host 127.0.0.1 -d test -c reddit
 ```
 Sredni czas importu to ok 7000 pozycji na sekunde.
-Procesor obciazoy byl w ~80%. Obciazenie skakalo, gdyz import przebiegal poszczegolymi paczkami (bunzip z opcja dekompresuje do standardowego wyjscia - stad importy "w paczkach" i skoki uzycia procesora)
+Procesor obciazoy byl w ~80%. Obciazone byly 4 procesory jednoczesnie, zwykle pierwsze. Niestety dane diagnostyczne zostaly skasowane chmurze i mam tylko zrzuty ekranów komendy top:
+
 
 
 
