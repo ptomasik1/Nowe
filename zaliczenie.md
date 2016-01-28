@@ -258,6 +258,7 @@ Lokalizacje znajdujace sie do 10 km od Warszawy:
 { "_id" : 7531926, "name" : "Warszawa", "country" : "PL", "loc" : { "type" : "Point", "coordinates" : [ 21.061399, 52.233101 ] } }
 { "_id" : 768780, "name" : "Koło", "country" : "PL", "loc" : { "type" : "Point", "coordinates" : [ 20.94903, 52.245739 ] } }
 ```
+[Geojson Punkty](mapy/miasta.geojson "LineString")
 
 
 
