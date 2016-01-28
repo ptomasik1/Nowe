@@ -45,6 +45,88 @@ Sprawdzmy zatem jeszcze 5 afrykanskich restauracji:
 
 ```
 
+Sprawdzmy w ogole jakie sa typy jedzenia w restauracjach:
+
+```sh
+> db.restauracje.distinct("type_of_food").sort()
+[
+        "*NEW*",
+        "Afghan",
+        "African",
+        "American",
+        "Arabic",
+        "Azerbaijan",
+        "Bagels",
+        "Bangladeshi",
+        "Breakfast",
+        "Burgers",
+        "Cakes",
+        "Caribbean",
+        "Chicken",
+        "Chinese",
+        "Curry",
+        "Desserts",
+        "English",
+        "Ethiopian",
+        "Fish & Chips",
+        "Greek",
+        "Grill",
+        "Healthy",
+        "Ice Cream",
+        "Japanese",
+        "Kebab",
+        "Korean",
+        "Lebanese",
+        "Mediterranean",
+        "Mexican",
+        "Middle Eastern",
+        "Milkshakes",
+        "Moroccan",
+        "Nigerian",
+        "Pakistani",
+        "Pasta",
+        "Peri Peri",
+        "Persian",
+        "Pick n Mix",
+        "Pizza",
+        "Polish",
+        "Portuguese",
+        "Punjabi",
+        "Russian",
+        "Sandwiches",
+        "South Curry",
+        "Spanish",
+        "Sri-lankan",
+        "Sushi",
+        "Thai",
+        "Turkish",
+        "Vegetarian",
+        "Vietnamese"
+]
+```
+
+Czy sa kebaby w Londynie? Sprawdzmy
+```sh
+db.restauracje.find({"address line 2": "London", "type_of_food": "Kebab"}, {_id: 0, name: 1, rating: 1, type_of_food: 1, "address line 2": 1}).sort({name: 1})
+{ "address line 2" : "London", "name" : "Alanya Steak & Kebab House", "rating" : 5, "type_of_food" : "Kebab" }
+{ "address line 2" : "London", "name" : "Ali Baba Kebab House", "rating" : 4.5, "type_of_food" : "Kebab" }
+{ "address line 2" : "London", "name" : "Ali Baba Kebab House", "rating" : 4.5, "type_of_food" : "Kebab" }
+{ "address line 2" : "London", "name" : "Angel Kebab", "rating" : 5, "type_of_food" : "Kebab" }
+{ "address line 2" : "London", "name" : "Angel Kebab", "rating" : 5, "type_of_food" : "Kebab" }
+{ "address line 2" : "London", "name" : "Askew Fish & Kebabs", "rating" : 5.5, "type_of_food" : "Kebab" }
+{ "address line 2" : "London", "name" : "Atlantic BBQ Grill", "rating" : 4, "type_of_food" : "Kebab" }
+{ "address line 2" : "London", "name" : "Best Kebab", "rating" : 3.5, "type_of_food" : "Kebab" }
+{ "address line 2" : "London", "name" : "Best Kebab", "rating" : 3.5, "type_of_food" : "Kebab" }
+{ "address line 2" : "London", "name" : "Best Kebab", "rating" : 3.5, "type_of_food" : "Kebab" }
+{ "address line 2" : "London", "name" : "Best Kebab", "rating" : 3.5, "type_of_food" : "Kebab" }
+{ "address line 2" : "London", "name" : "Best Kebab", "rating" : 4.5, "type_of_food" : "Kebab" }
+{ "address line 2" : "London", "name" : "Best Kebab", "rating" : 4.5, "type_of_food" : "Kebab" }
+{ "address line 2" : "London", "name" : "Best Kebab", "rating" : 5, "type_of_food" : "Kebab" }
+{ "address line 2" : "London", "name" : "Best Kebab", "rating" : 5, "type_of_food" : "Kebab" }
+{ "address line 2" : "London", "name" : "Best Kebab", "rating" : 5, "type_of_food" : "Kebab" }
+```
+
+
 
 
 
