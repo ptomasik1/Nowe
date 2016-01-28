@@ -20,7 +20,7 @@ sys     0m0.042s
 
 Sprawdzmy, czy dziala. Wyswietlam pierwszy rekord, licze rekordy itp:
 
-![Check](img/Sprawdzenie_rest.png)
+![Check](img/Sprawdzenie_rest.bmp)
 
 Wyswietle najpierw restauracje w miastach, ktorych nazwa zaczyna sie na "L".
 
