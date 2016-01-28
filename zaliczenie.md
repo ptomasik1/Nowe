@@ -157,6 +157,51 @@ Wyszukiwanie obciazalo znaczaco procesor i generowalo duzo IO na dysku twardym.
 
 ![import](img/wyszukiwanie.png)
 
+###Zadanie Postgres
+
+Instaluje paczke pgfutter, bez ktorej import bylby uciazliwy
+
+```sh
+wget -O pgfutter https://github.com/lukasmartinelli/pgfutter/releases/download/v0.3.2/pgfutter_linux_amd64
+chmod +x pgfutter
+```
+
+Import:
+
+```sh
+time sudo ./pgfutter --db postgres --user postgres --pw postgres json RC_2015_05
+```
+I wynik:
+
+```sh
+#real     143m7.485s
+#user     175m1.809s
+#sys       15m32.174s
+```
+
+Uff!
+Zliczmy rekordy, czy wszystko jest ok:
+
+```sh
+select count(*) from import.rc_2015_05;
+54504410
+```
+
+Zgadza sie wszystko dziala!
+
+Wioski:
+
+|Polecenie | MongoDB | Postgres|
+|---------|---------|----------|
+|Instalacja|Bardzo prosta|Bardzo prosta, ale dodatkowo trzeba bylo skonfigurowac uzytkownika postgres|
+|Import|Trywialny|Trzeba bylo skorzystac z programow dodatkowy, po wielu probach udalo sie, ciezko|
+|Czas importu|126 minut|143 minuty|
+|Zliczanie|Od razu|Bardzo dlugo, myslalem juz, ze cos jest nie tak|
+|Ogolne wrazenia|Dziala bardzo fajnie, zapytania obciazaja CPU i dysk|Wydaje sie dzialac troche "wolniej"|
+
+
+
+
 
 
 
