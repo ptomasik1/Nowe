@@ -251,18 +251,14 @@ switched to db miasta
 Lokalizacje znajdujace sie do 10 km od Warszawy:
 
 ```sh
-> db.miasta.find({loc: {$near: {$geometry: {type: "Point", coordinates: [21.005687713623047,52.23179481161377]}, $maxDistance: 10000}}}).skip(1)
+> db.miasta.find({loc: {$near: {$geometry: {type: "Point", coordinates: [21.005687713623047,52.23179481161377]}, $maxDistance: 5000}}}).skip(1)
 { "_id" : 764255, "name" : "Muranów", "country" : "PL", "loc" : { "type" : "Point", "coordinates" : [ 20.99021, 52.243679 ] } }
 { "_id" : 858787, "name" : "Województwo Mazowieckie", "country" : "PL", "loc" : { "type" : "Point", "coordinates" : [ 21, 52.25 ] } }
 { "_id" : 6695624, "name" : "Warszawa", "country" : "PL", "loc" : { "type" : "Point", "coordinates" : [ 21.04191, 52.23547 ] } }
 { "_id" : 7531926, "name" : "Warszawa", "country" : "PL", "loc" : { "type" : "Point", "coordinates" : [ 21.061399, 52.233101 ] } }
 { "_id" : 768780, "name" : "Koło", "country" : "PL", "loc" : { "type" : "Point", "coordinates" : [ 20.94903, 52.245739 ] } }
-{ "_id" : 765159, "name" : "Marymont", "country" : "PL", "loc" : { "type" : "Point", "coordinates" : [ 20.96874, 52.27993 ] } }
-{ "_id" : 753571, "name" : "Zbarz", "country" : "PL", "loc" : { "type" : "Point", "coordinates" : [ 20.98333, 52.166672 ] } }
-{ "_id" : 753911, "name" : "Załuski", "country" : "PL", "loc" : { "type" : "Point", "coordinates" : [ 20.937321, 52.173569 ] } }
-{ "_id" : 754351, "name" : "Zabki", "country" : "PL", "loc" : { "type" : "Point", "coordinates" : [ 21.105391, 52.292709 ] } }
-{ "_id" : 7532677, "name" : "Ząbki", "country" : "PL", "loc" : { "type" : "Point", "coordinates" : [ 21.112499, 52.2924 ] } }
 ```
+
 
 
 
