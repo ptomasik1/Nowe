@@ -30,6 +30,10 @@ Procesor obciazony byl w ~80%. Obciazone byly 4 procesory jednoczesnie, zwykle p
 ![import](img/procesory2.png)
 ![import](img/procesory3.png)
 
+Po dwoch godzinach koniec!
+
+![import](img/finished1.png)
+
 
 
 
