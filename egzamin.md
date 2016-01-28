@@ -194,6 +194,74 @@ Najpierw wrzućmy to do pliku excel, tak wyglada tabelka:
 |	Bradford	|	30	|
 |	Bristol	|	30	|
 
+![Check](img/wykres1.bmp)
+
+Ciekawe jeszcze jakie miasta maja srednio najlepsze oceny restauracji, moze beda te miasta co wyzej?
+
+```sh
+db.restauracje.aggregate([
+  { $group: {_id: "$address line 2", "count" : {"$sum" : 1}, avgRating: {$avg: "$rating"}} },
+  { $sort: {avgRating: -1 } },
+  {$limit : 10}
+])
+{ "_id" : "Northallerton", "count" : 2, "avgRating" : 6 }
+{ "_id" : "Brentford", "count" : 2, "avgRating" : 6 }
+{ "_id" : "Dyfed", "count" : 1, "avgRating" : 6 }
+{ "_id" : "Rainham", "count" : 1, "avgRating" : 6 }
+{ "_id" : "Somerset", "count" : 1, "avgRating" : 6 }
+{ "_id" : "Dymchurch", "count" : 1, "avgRating" : 6 }
+{ "_id" : "Hertfordshire County", "count" : 1, "avgRating" : 6 }
+{ "_id" : "Sparkhill", "count" : 1, "avgRating" : 6 }
+{ "_id" : "Freckleton", "count" : 1, "avgRating" : 6 }
+{ "_id" : "Colne", "count" : 1, "avgRating" : 6 }
+
+```
+Nic ciekawego, im mniej restauracji tym lepszy / gorszy wynik. Potwierdze tylko:
+To moze wedlug kodu pocztowego?
+
+```sh
+> db.restauracje.aggregate([
+...   { $group: {_id: "$postcode", "count" : {"$sum" : 1}, avgRating: {$avg: "$rating"}} },
+...   { $sort: {avgRating: -1 } },
+...   {$limit : 10}
+... ])
+{ "_id" : "2JF", "count" : 1, "avgRating" : 6 }
+{ "_id" : "8BH", "count" : 1, "avgRating" : 6 }
+{ "_id" : "0QD", "count" : 1, "avgRating" : 6 }
+{ "_id" : "0AH", "count" : 2, "avgRating" : 6 }
+{ "_id" : "9LH", "count" : 2, "avgRating" : 6 }
+{ "_id" : "0NH", "count" : 1, "avgRating" : 6 }
+{ "_id" : "1NB", "count" : 2, "avgRating" : 6 }
+{ "_id" : "2HQ", "count" : 1, "avgRating" : 6 }
+{ "_id" : "1HT", "count" : 1, "avgRating" : 6 }
+{ "_id" : "2HY", "count" : 1, "avgRating" : 6 }
+```
+
+Tez nic interesujacego, w takim razie pokusze sie o zliczenie wszystkich typow restauracji i przedstawienie na wykresie
+
+```sh
+> db.restauracje.aggregate(
+... [
+...   {"$group" :
+...     {"_id" : "$type_of_food", "count" : {"$sum" : 1}}},
+...     {"$sort" : {"count" : -1}},
+...     {"$limit" : 10}
+...     ])
+{ "_id" : "Curry", "count" : 902 }
+{ "_id" : "Pizza", "count" : 500 }
+{ "_id" : "Chinese", "count" : 174 }
+{ "_id" : "Kebab", "count" : 154 }
+{ "_id" : "Fish & Chips", "count" : 116 }
+{ "_id" : "American", "count" : 95 }
+{ "_id" : "Turkish", "count" : 74 }
+{ "_id" : "Lebanese", "count" : 70 }
+{ "_id" : "Chicken", "count" : 53 }
+{ "_id" : "Caribbean", "count" : 46 }
+```
+Wykres top10:
+
+![Check](img/wykres2.bmp)
+
 
 
 
