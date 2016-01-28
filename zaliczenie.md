@@ -273,6 +273,14 @@ Teraz poligon (dlugi i cienki):
 ```
 [Geojson Poligon](mapy/mapa2.geojson "LineString")
 
+Linia:
+Start linii z premedytacja wybrany jako jedno miasto, inaczej trudno trafic:
+
+```sh
+db.miasta.find({loc: {$geoIntersects: {$geometry: {type: "LineString", coordinates: [ [21.04191,52.23547], [16.993103027343746,52.282442013563276]]}}}})
+{ "_id" : 6695624, "name" : "Warszawa", "country" : "PL", "loc" : { "type" : "Point", "coordinates" : [ 21.04191, 52.23547 ] } }
+```
+[Geojson Linia](mapy/mapa3.geojson "LineString")
 
 
 
