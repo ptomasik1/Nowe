@@ -1,10 +1,9 @@
 ## Egzamin, Przemyslaw Tomasik
+###Mogo db version v2.6.11
+###Wykresy: Excel 2003
+###Python 2.7.3
 
 Pobralem baze danych brytyjskich restauracji i zaimportowalem standardowo (tym razem bez rozpakowywania do bazy danych):
-#Mogo db version v2.6.11
-#Wykresy: Excel 2003
-#Python 2.7.3
-
 
 ```sh
 time mongoimport -d restaurancje -c restauracje < restaurants.json
