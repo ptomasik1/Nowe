@@ -126,6 +126,59 @@ db.restauracje.find({"address line 2": "London", "type_of_food": "Kebab"}, {_id:
 { "address line 2" : "London", "name" : "Best Kebab", "rating" : 5, "type_of_food" : "Kebab" }
 ```
 
+###Troche Javy
+
+Sprawdzmy najslabiej oceniane restauracje:
+```sh
+db.restauracje.aggregate([
+...       {$group:{_id:"$name",avgRating:
+...             {$avg: "$rating"}}},
+...         {$sort:{avgRating:1}}])
+{ "_id" : "Blaka Jacks - Collection Only", "avgRating" : 0 }
+{ "_id" : "Benvenuti - Collection Only", "avgRating" : 0 }
+{ "_id" : "Benny's Chicken", "avgRating" : 0 }
+{ "_id" : "Bean Cafe", "avgRating" : 0 }
+{ "_id" : "Bibble Milkshake Bar", "avgRating" : 0 }
+{ "_id" : "Barry's Bar - Collection Only", "avgRating" : 0 }
+{ "_id" : "Atlantic Fish Bar - Collection Only", "avgRating" : 0 }
+{ "_id" : "Bake Oven Bakery - Collection Only", "avgRating" : 0 }
+{ "_id" : "Babu's Indian Spice", "avgRating" : 0 }
+{ "_id" : "Alcatraz Caffe Poole", "avgRating" : 0 }
+{ "_id" : "Balti Pickles", "avgRating" : 0 }
+{ "_id" : "Arowana", "avgRating" : 0 }
+{ "_id" : "Big Daddy House", "avgRating" : 0 }
+{ "_id" : "Atlantic Bakeries", "avgRating" : 0 }
+{ "_id" : "Asia Tandoori Restaurant - Collection Only", "avgRating" : 0 }
+{ "_id" : "Alasia", "avgRating" : 0 }
+{ "_id" : "Au Village - Collection Only", "avgRating" : 0 }
+{ "_id" : "Bear's Boutique Bowling - Collection Only", "avgRating" : 0 }
+{ "_id" : "Anokha Indian Bar & Restaurant", "avgRating" : 0 }
+{ "_id" : "4550 Miles From Delhi - Collection Only", "avgRating" : 0 }
+```
+Nic ciekawego, najnizej same zera. Sprawdzmy moze zatem ile jest restauracji w roznych miastach:
+
+```sh
+db.restauracje.aggregate(
+[
+  {"$group" :
+    {"_id" : "$address line 2", "count" : {"$sum" : 1}}},
+    {"$sort" : {"count" : -1}},
+    {"$limit" : 10}
+    ])
+{ "_id" : "London", "count" : 345 }
+{ "_id" : "Birmingham", "count" : 85 }
+{ "_id" : "Manchester", "count" : 58 }
+{ "_id" : "Glasgow", "count" : 55 }
+{ "_id" : "Essex", "count" : 40 }
+{ "_id" : "Sheffield", "count" : 37 }
+{ "_id" : "Leeds", "count" : 33 }
+{ "_id" : "Liverpool", "count" : 32 }
+{ "_id" : "Bradford", "count" : 30 }
+{ "_id" : "Bristol", "count" : 30 }
+
+```
+O, 10 miast z najwieksza iloscia restaucji. Mozna przedstawic to na wykresie!
+
 
 
 
