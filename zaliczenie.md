@@ -1,4 +1,4 @@
-###Zadanie 1a MongoDB
+###Zadanie MongoDB
 
 Do zadania wybralem miesieczna baze danych z postow reddita z kwietnia 2015
 Nazwa pliku: RC_2015-01
