@@ -181,7 +181,7 @@ O, 10 miast z najwieksza iloscia restaucji. Mozna przedstawic to na wykresie!
 
 Najpierw wrzućmy to do pliku excel, tak wyglada tabelka:
 | miasto | ilosc |
-|--------|-----|
+|--------|---------|
 |	London	|	345	|
 |	Birmingham	|	85	|
 |	Manchester	|	58	|
