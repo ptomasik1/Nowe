@@ -196,6 +196,27 @@ Najpierw wrzućmy to do pliku excel, tak wyglada tabelka:
 
 ![Check](img/wykres1.bmp)
 
+### A w pythonie
+```py
+import pymongo
+from pymongo import MongoClient
+client = MongoClient()
+
+db = client['restauracje']
+collection = db['resturacje']
+
+pipeline = [
+    {"_id" : "$address line 2", "count" : {"$sum" : 1}}},
+    {"$sort" : {"count" : -1}},
+    {"$limit" : 10}
+]
+
+query = db.restauracje.aggregate(pipeline)
+for element in query:
+   print(element)
+```
+
+
 Ciekawe jeszcze jakie miasta maja srednio najlepsze oceny restauracji, moze beda te miasta co wyzej?
 
 ```sh
