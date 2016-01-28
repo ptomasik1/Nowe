@@ -37,6 +37,113 @@ Po dwoch godzinach koniec!
 Formatowanie wyniku "time" jest takie nieladne, poniewaz uzylem "sudo time <>" zamiast "time sudo <>"
 
 
+Sprawdzmy baze:
+```sh
+> show collections
+reddit
+system.indexes
+> db.reddit.count()
+54504410
+```
+Jest ok.
+Znajdzmy jeszcze pierwszy wynik:
+
+```sh
+> db.reddit.findOne()
+{
+        "_id" : ObjectId("56a93fdc472bdfe138fecf10"),
+        "created_utc" : "1430438400",
+        "ups" : 4,
+        "subreddit_id" : "t5_378oi",
+        "link_id" : "t3_34di91",
+        "name" : "t1_cqug90g",
+        "score_hidden" : false,
+        "author_flair_css_class" : null,
+        "author_flair_text" : null,
+        "subreddit" : "soccer_jp",
+        "id" : "cqug90g",
+        "removal_reason" : null,
+        "gilded" : 0,
+        "downs" : 0,
+        "archived" : false,
+        "author" : "rx109",
+        "score" : 4,
+        "retrieved_on" : 1432703079,
+        "body" : "くそ\n読みたいが買ったら負けな気がする\n図書館に出ねーかな",
+        "distinguished" : null,
+        "edited" : false,
+        "controversiality" : 0,
+        "parent_id" : "t3_34di91"
+}
+```
+
+Pierwszy wpis i po japonsku. Ciekawe jakie subreddity sa japonskie? Uznaje, ze taki, ktore maja w nazwie "jp"
+
+```sh
+> db.reddit.find({subreddit: /jp/}, {_id:0, subreddit:1})
+{ "subreddit" : "soccer_jp" }
+{ "subreddit" : "science_jp" }
+{ "subreddit" : "CreditCard_jp" }
+{ "subreddit" : "itmejp" }
+{ "subreddit" : "gamemusic_jp" }
+{ "subreddit" : "jpop" }
+{ "subreddit" : "tvdrama_jp" }
+{ "subreddit" : "ksjp" }
+{ "subreddit" : "ksjp" }
+{ "subreddit" : "ksjp" }
+{ "subreddit" : "bjpals" }
+{ "subreddit" : "itmejp" }
+{ "subreddit" : "gundambreaker2_jp" }
+{ "subreddit" : "soccer_jp" }
+{ "subreddit" : "itmejp" }
+{ "subreddit" : "retrogamejp" }
+{ "subreddit" : "soccer_jp" }
+{ "subreddit" : "soccer_jp" }
+{ "subreddit" : "retrogamejp" }
+{ "subreddit" : "retrogamejp" }
+has more
+```
+
+O, jest więcej. Pominmy zatem pierwsze 30 i pokazmy nastepne 10
+
+```sh
+> db.reddit.find({subreddit: /jp/}, {_id:0, subreddit:1}).skip(30).limit(10)
+
+{ "subreddit" : "jp_smahogames" }
+{ "subreddit" : "retrogamejp" }
+{ "subreddit" : "retrogamejp" }
+{ "subreddit" : "CreditCard_jp" }
+{ "subreddit" : "itmejp" }
+{ "subreddit" : "science_jp" }
+{ "subreddit" : "itmejp" }
+{ "subreddit" : "ksjp" }
+{ "subreddit" : "ksjp" }
+{ "subreddit" : "nintendo_jp" }
+```
+
+Ciekawe ile pozloconych postow jest w subreddicie "nintendo_jp":
+
+```sh
+db.reddit.find({subreddit: "nintendo_jp",gilded: { $gte: 1}}).count()
+> 0
+```
+A ile wszystkich wpisow?
+
+```sh
+db.reddit.find({subreddit: "nintendo_jp"}).count()
+> 416
+```
+
+Sprawdzmy, czy rzeczywiscie nie ma zadnego zlota w tym subreddicie:
+
+```sh
+db.reddit.find({subreddit: "nintendo_jp",gilded: { $lte: 1}}).count()
+> 416
+```
+
+Nie ma! Oznacza to, że nikt nie dal zlota w tym subreddicie i jest on maly.
+
+
 
 
 
