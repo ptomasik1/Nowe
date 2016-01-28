@@ -260,6 +260,18 @@ Lokalizacje znajdujace sie do 10 km od Warszawy:
 ```
 [Geojson Punkty](mapy/miasta.geojson "LineString")
 
+Teraz poligon (dlugi i cienki):
+
+```sh
+> db.miasta.find(
+...   { loc: {$geoWithin : { $geometry:
+...     {type : "Polygon", coordinates: [ [[19.1,50.0], [22.566669,51.0], [19.5,50.2], [19.1,50.0]] ]   }
+...    }}},{_id:0, name:1} ).limit(3)
+{ "name" : "Skala" }
+{ "name" : "Oswiecim" }
+{ "name" : "Brzezinka" }
+```
+
 
 
 
