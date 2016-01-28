@@ -9,13 +9,18 @@ Proces skonczyl sie szybko:
 
 ```sh
 connected to: 127.0.0.1
-imported 2548 objects
-0.13user 0.02system 0:00.68elapsed 23%CPU (0avgtext+0avgdata 61088maxresident)k
-4792inputs+0outputs (33major+1801minor)pagefaults 0swaps
+2016-01-28T13:35:59.829+0000 check 9 2548
+2016-01-28T13:35:59.829+0000 imported 2548 objects
+
+real    0m1.346s
+user    0m0.133s
+sys     0m0.042s
+
 ```
 
 Sprawdzmy, czy dziala. Wyswietlam pierwszy rekord, licze rekordy itp:
 
+![Check](img/Sprawdzenie_rest.png)
 
 Wyswietle najpierw restauracje w miastach, ktorych nazwa zaczyna sie na "L".
 
