@@ -271,7 +271,7 @@ Teraz poligon (dlugi i cienki):
 { "name" : "Oswiecim" }
 { "name" : "Brzezinka" }
 ```
-
+[Geojson Poligon](mapy/mapa2.geojson "LineString")
 
 
 
