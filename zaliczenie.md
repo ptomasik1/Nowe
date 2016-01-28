@@ -143,6 +143,16 @@ db.reddit.find({subreddit: "nintendo_jp",gilded: { $lte: 1}}).count()
 
 Nie ma! Oznacza to, że nikt nie dal zlota w tym subreddicie i jest on maly.
 
+o i agregacja potwierdzająca wynik:
+
+```sh
+db.reddit.aggregate([ 
+{$group:{_id: "$subreddit", count:{$sum: gilded}}},
+{$sort:{count: -1}},
+{$limit: 5}
+]);
+```
+
 
 
 
