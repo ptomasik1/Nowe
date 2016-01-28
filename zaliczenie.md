@@ -34,6 +34,8 @@ Po dwoch godzinach koniec!
 
 ![import](img/finished1.png)
 
+Formatowanie wyniku "time" jest takie nieladne, poniewaz uzylem "sudo time <>" zamiast "time sudo <>"
+
 
 
 
