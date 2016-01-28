@@ -153,6 +153,10 @@ db.reddit.aggregate([
 ]);
 ```
 
+Wyszukiwanie obciazalo znaczaco procesor i generowalo duzo IO na dysku twardym.
+
+![import](img/wyszukiwanie.png)
+
 
 
 
