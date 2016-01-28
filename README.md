@@ -4,6 +4,7 @@ Rozwiązania zadań z przedmiotu *Bazy NoSQL*:
 
 1. [Zaliczenie](zaliczenie.md):
  - [x] EDA
+ - [x] geoJSON
 1. [Egzamin](egzamin.md)
  - [x] Aggregation Pipeline
 
@@ -20,4 +21,5 @@ Obliczenia wykonywane byly na maszynie wirtualnej w chmurze Azure:
 | Dysk| HDD|
 | Maks. IOPS | 16x500 |
 
+![import](img/no_sql_system_info.bmp)
 
