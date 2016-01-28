@@ -21,7 +21,7 @@ Obliczenia wykonywane byly na maszynie wirtualnej w chmurze Azure:
 | Dysk| HDD|
 | Maks. IOPS | 16x500 |
 
-Ile operacje kosztowały? Prawie nic. Portal zarzadzania pokazuje, ze zuzylem tylko 1,71 Euro z dostepnej puli! 
+Ile operacje kosztowały? Prawie nic. Portal zarzadzania pokazuje, ze zuzylem tylko 5,35 Euro z dostepnej puli, z czego najwiecej wydane na moc obliczeniowa: 4,93! Reszta (operacje dyskowe) to centy. 
 
 ![import](img/wydatki.bmp)
 
