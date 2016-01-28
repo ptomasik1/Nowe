@@ -21,5 +21,9 @@ Obliczenia wykonywane byly na maszynie wirtualnej w chmurze Azure:
 | Dysk| HDD|
 | Maks. IOPS | 16x500 |
 
+Ile operacje kosztowały? Prawie nic. Portal zarzadzania pokazuje, ze zuzylem tylko 1,71 Euro z dostepnej puli! 
+
+![import](img/wydatki.bmp)
+
 ![import](img/no_sql_system_info.bmp)
 
