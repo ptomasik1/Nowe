@@ -179,6 +179,22 @@ db.restauracje.aggregate(
 ```
 O, 10 miast z najwieksza iloscia restaucji. Mozna przedstawic to na wykresie!
 
+Najpierw wrzućmy to do pliku excel, tak wyglada tabelka:
+| miasto|ilosc|
+|----|-----|
+|	London	|	345	|
+|	Birmingham	|	85	|
+|	Manchester	|	58	|
+|	Glasgow	|	55	|
+|	Essex	|	40	|
+|	Sheffield	|	37	|
+|	Leeds	|	33	|
+|	Liverpool	|	32	|
+|	Bradford	|	30	|
+|	Bristol	|	30	|
+
+
+
 
 
 
